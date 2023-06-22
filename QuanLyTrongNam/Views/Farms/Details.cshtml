@@ -1,0 +1,71 @@
+﻿@model QuanLyTrongNam.Models.Farm
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Farm</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.FarmName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.FarmName)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.FarmLocation)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.FarmLocation)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.FarmPicture)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.FarmPicture)
+        </dd>
+    </dl>
+    <h2>Farmers:</h2>
+    <ul>
+        @foreach (var farmer in Model.Farmers)
+        {
+            <li>Farmer ID: @farmer.FarmerId</li>
+            <li>Farmer Name: @farmer.FarmerName</li>
+            <li>Farmer Address: @farmer.FarmerAddress</li>
+            <li>Farmer Phone: @farmer.FarmerPhone</li>
+            <li>Farmer Picture: @farmer.FarmerPicture</li>
+            <br />
+        }
+    </ul>
+    <h2>Sensors:</h2>
+    <ul>
+        @foreach (var sensor in Model.Sensors)
+        {
+            <li>Sensor ID: @sensor.SensorId</li>
+            <li>Sensor Name: @sensor.SensorName</li>
+            <li>Sensor Type: @sensor.SensorType</li>
+            <br />
+        }
+    </ul>
+    <h2>Mushrooms:</h2>
+    <ul>
+        @foreach (var mushroom in Model.Mushrooms)
+        {
+            <li>Mushroom ID: @mushroom.MushroomId</li>
+            <li>Mushroom Name: @mushroom.MushroomName</li>
+            <li>Mushroom Description: @mushroom.MushroomDescription</li>
+            <li>Mushroom Price: @mushroom.MushroomPrice</li>
+            <br />
+        }
+    </ul>
+
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.FarmId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
